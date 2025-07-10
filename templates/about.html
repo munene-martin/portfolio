@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Me</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/static/style.css" />
+  <style>
+    :root {
+      --bg-color: #f5f7fa;
+      --text-color: #333;
+      --card-bg: #fff;
+      --link-color: #1976d2;
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #f0f0f0;
+      --card-bg: #1e1e1e;
+      --link-color: #90caf9;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 60px auto;
+      background-color: var(--card-bg);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    .nav {
+      margin-top: 30px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--link-color);
+      font-weight: bold;
+    }
+
+    .nav a:hover {
+      text-decoration: underline;
+    }
+
+    .toggle-theme {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 8px 12px;
+      background-color: var(--link-color);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="toggle-theme" onclick="toggleTheme()">Toggle Theme</button>
+
+  <div class="container">
+    <h1>About Me</h1>
+    <p>Hello! I'm Martin Munene, a passionate developer dedicated to building clean and useful web applications. This page gives a quick overview of who I am, what I do, and what I love about tech.</p>
+    <div class="nav">
+      <a href="/">← Back to Home</a>
+    </div>
+  </div>
+
+  <script>
+    // Load saved theme on page load
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme',
+        document.body.classList.contains('dark-mode') ? 'dark' : 'light'
+      );
+    }
+  </script>
+</body>
+</html>
