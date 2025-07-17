@@ -1,11 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Martin Munene | Portfolio</title>
     <link rel="stylesheet" href="/static/style.css">
     <style>
-        /* ...existing styles... */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #121212;
+            color: #fff;
+        }
+
         .binary-flow {
             text-align: center;
             position: fixed;
@@ -20,19 +28,15 @@
             align-items: center;
             pointer-events: none;
             gap: 2vw;
-
         }
 
         .binary-flow span {
-            display: inline-block;
-            text-align: center;
             color: #08e862;
             font-family: 'Consolas', monospace;
             font-size: 1.3em;
             opacity: 0.8;
             white-space: nowrap;
             animation: binary-move 12s linear infinite;
-            padding-right: 2vw;
         }
 
         .binary-flow span:nth-child(2) {
@@ -46,26 +50,25 @@
         @keyframes binary-move {
             0% {
                 transform: translateX(100vw);
-                opacity: 0.8;
             }
 
             100% {
                 transform: translateX(-100vw);
-                opacity: 0.8;
             }
         }
 
-        /* Add styles for the random quote section */
-        .random-quote {
-            margin: 2em auto 0 auto;
-            padding: 1em 2em;
-            background: #222;
+        .nav-bar {
+            background: #1a1a1a;
+            padding: 1em;
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+            flex-wrap: wrap;
+        }
+
+        .nav-bar a {
             color: #90caf9;
-            border-radius: 8px;
-            max-width: 500px;
-            font-style: italic;
-            text-align: center;
-            box-shadow: 0 2px 8px #0006;
+            text-decoration: none;
         }
 
         .hero {
@@ -75,88 +78,133 @@
             text-align: center;
         }
 
+        .cta button {
+            margin: 0.5em;
+            padding: 0.7em 1.5em;
+            font-size: 1em;
+            background: #08e862;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .cta button a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .social {
+            margin-top: 1em;
+        }
+
+        .social a {
+            margin: 0 1em;
+            color: #ffcc00;
+            text-decoration: none;
+        }
+
+        .random-quote {
+            margin: 2em auto;
+            padding: 1em;
+            background: #222;
+            color: #90caf9;
+            border-radius: 8px;
+            max-width: 90%;
+            font-style: italic;
+            text-align: center;
+            box-shadow: 0 2px 8px #0006;
+        }
+
         .footer {
             background: #222;
             color: #90caf9;
             text-align: center;
-            padding: 1em 0;
-            position: relative;
-            bottom: 0;
+            padding: 1.5em 1em;
             width: 100%;
         }
-        .tenor-gif-embed {
-            width: 100px;
-            height: 100px;
-        }
+
         .FastAPI, .jinja2 {
             color: #ee720c;
             text-decoration: none;
         }
-        
+
+        /* 📱 Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 3em 1em;
+            }
+
+            .cta button {
+                width: 100%;
+                margin: 0.5em 0;
+            }
+
+            .binary-flow span {
+                font-size: 1em;
+            }
+
+            .nav-bar {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .social a {
+                display: block;
+                margin: 0.5em 0;
+            }
+        }
     </style>
 </head>
-<div class="binary-flow">
-        <span>1010101011010010110100101101001011010010110100101101001</span>
-        <span>1101001010110100101101001011010010110100101101001011010</span>
-        <span>0110110100101101011010010110101101001011010110100101101</span>
-        <span>1101001010110100101101001011010010110100101101001011010</span>
-        <span>0110110100101101011010010110101101001011010110100101101</span>
-    </div>
+
 <body>
-    
-    <br>
-    <br>
+    <div class="binary-flow">
+        <span>1010101011010010110100101101001</span>
+        <span>1101001010110100101101001</span>
+        <span>011011010010110101101001</span>
+    </div>
+
     <nav class="nav-bar">
-        <!-- {% if request.session.get('user') %}
-        <a href="/admin">Admin</a> |
-        <a href="/logout">Logout</a> |
-        {% else %}
-        <a href="/admin">Admin</a> |
-        {% endif %} -->
-        <a href="/">Home</a> |
-        <a href="/about">About</a> |
-        <!-- <a href="/projects">Projects</a> | -->
+        <a href="/">Home</a>
+        <a href="/about">About</a>
         <a href="/contact">Contact</a>
     </nav>
+
     <section class="hero">
-       <figcaption> <h1>Hi There. I'm Martin Munene</h1>
-        <p>Software Developer | Python Enthusiast | Aspiring Devops Engineer</p></figcaption>
+        <h1>Hi There. I'm Martin Munene</h1>
+        <p>Software Developer | Python Enthusiast | Aspiring DevOps Engineer</p>
+
         <div class="cta">
-            <button><a href="/projects">View My Projects</a></button>  
+            <button><a href="/projects">View My Projects</a></button>
             <button><a href="/contact">Contact Me</a></button>
         </div>
-        <br>
+
         <div class="social">
-            <a href="https://github.com/munene-martin" target="_blank" title="GitHub">🐙 GitHub</a>
-            <a href="https://www.linkedin.com/in/kariuki-martin-73151731a/" target="_blank" title="LinkedIn">💼 LinkedIn</a>
+            <a href="https://github.com/munene-martin" target="_blank">🐙 GitHub</a>
+            <a href="https://www.linkedin.com/in/kariuki-martin-73151731a/" target="_blank">💼 LinkedIn</a>
         </div>
     </section>
-    <!-- Auto-generating content section -->
-    <div class="random-quote" id="random-quote"></div>
-    <footer class="footer">
-        <p class="footer">&copy; 2025 Martin Munene. All rights reserved.</p>
-         <p>Made with ❤️ using <a href="https://fastapi.tiangolo.com/" class="FastAPI">FastAPI</a>, <a href="https://jinja.palletsprojects.com/" class="jinja2">Jinja2</a>, and a sprinkle of magic.</p>
-    </footer>
-  
-    <br>
-    <figcaption>
 
-        <script>
-            // Simple random quote generator
-            const quotes = [
-                "Code is like humor. When you have to explain it, it’s bad.",
-                "First, solve the problem. Then, write the code.",
-                "Experience is the name everyone gives to their mistakes.",
-                "In order to be irreplaceable, one must always be different.",
-                "Java is to JavaScript what car is to Carpet.",
-                "Knowledge is power.",
-                "Talk is cheap. Show me the code.",
-                "Simplicity is the soul of efficiency.",
-            ];
-            document.getElementById('random-quote').textContent =
-                quotes[Math.floor(Math.random() * quotes.length)];
-        </script>
-    </figcaption>
+    <div class="random-quote" id="random-quote"></div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Martin Munene. All rights reserved.</p>
+        <p>Made with ❤️ using <a href="https://fastapi.tiangolo.com/" class="FastAPI">FastAPI</a>, <a href="https://jinja.palletsprojects.com/" class="jinja2">Jinja2</a>, and a sprinkle of magic.</p>
+    </footer>
+
+    <script>
+        const quotes = [
+            "Code is like humor. When you have to explain it, it’s bad.",
+            "First, solve the problem. Then, write the code.",
+            "Experience is the name everyone gives to their mistakes.",
+            "In order to be irreplaceable, one must always be different.",
+            "Java is to JavaScript what car is to Carpet.",
+            "Knowledge is power.",
+            "Talk is cheap. Show me the code.",
+            "Simplicity is the soul of efficiency.",
+        ];
+        document.getElementById('random-quote').textContent =
+            quotes[Math.floor(Math.random() * quotes.length)];
+    </script>
 </body>
 
 </html>
